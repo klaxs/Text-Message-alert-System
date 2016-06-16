@@ -1,0 +1,116 @@
+<%@ page language="pl/sql" %>
+<%@ plsql procedure="home_page" %>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initialscale=1">
+    <title>NJIT Emergency Text-Alerts</title>
+	<!-- Bootstrap -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	body{
+	margin:0px;
+	padding:0px;
+	clear:both;
+	}
+	h4{
+	float:right;
+	margin-right:80px;
+	margin-top:90px;
+	font-family:Times New Roman, Times, serif;
+	}
+	#div1{
+	width:100%;
+	height:120px;
+	background:#D11515;
+	margin:0;
+	padding:0;
+	position:relative;
+	}
+	#img1{
+	float:left;
+	width:25%;
+	height:90%;
+	}
+	h1{
+	font-size:40px;
+	font-family:Times New Roman, Times, serif;
+	}
+	.p1{
+	font-size:30px;
+	font-family:Times New Roman, Times, serif;
+	color:#FF4B14;
+	}
+	a:hover { 
+    background-color: yellow;
+	text-decoration:none;
+	}
+	a:active {
+    text-decoration: none;
+	color:#FF4B14;
+	}
+	a:link {
+    text-decoration: none;
+	color:#FF4B14;
+	}
+	a:visited {
+    text-decoration: none;
+	color:#FF4B14;
+	}
+	#p2{
+	font-family:Times New Roman, Times, serif;
+	text-align:justify;
+	}
+	#unsubs{
+	text-decoration:none;
+	color:#0F0264;
+	}
+	</style>
+</head>
+	<body>
+		<div id="div1">
+		<h4> <span class="glyphicon glyphicon-home">Home</span></h4>
+		<img src="adbmsProject/logo1.png" id="img1"/>
+		
+		</div>
+		
+		<div id="div2">
+		<h1 align="center"> WELCOME TO NJIT TEXT-MESSAGE </BR>
+		EMERGENCY ALERTS</h1>
+		<p class="p1" align="center"><a href="http://prophet.njit.edu:7780/CS632S104_015/mainform" ><b>SIGN UP</b> </a>HERE!!</P>
+		</div>
+		<div>
+		<p id="p2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is NJIT emergency message alert system. 
+		This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.
+		This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system.
+		This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.This is NJIT emergency message alert system. 
+		This helps students to take immediate action at any point of time 
+		alerts through messages. All you have to do is just subscribe.</p>
+		</div>
+		<footer align="center">
+		<p>Posted by: New Jersey Institute of Technology</p>
+		<p>Contact information: <a href="mailto:someone@example.com">
+		someone@njit.edu</a>.</p>
+		<p><a href="" id="unsubs">Unsubscribe</a></p>
+		</footer>
+		
+		
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files
+as needed -->
+ <script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

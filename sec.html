@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initialscale=1">
+    <title>NJIT Emergency Text-Alerts</title>
+</head>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	clear:both;
+	}
+ #div1{
+	width:100%;
+	height:120px;
+	background:#D11515;
+	margin:0;
+	padding:0;
+	position:relative;
+	}
+	#logo{
+	padding-left:15px;
+	padding-top:12px;
+	font-style: italic;
+	color:white;
+	font-size: 40px;
+	font-family: "Times New Roman", Georgia, Serif;
+	}
+#subs_div{
+border-style:ridge;
+border-width:7px;
+margin-top:70px;
+margin-left:80px;
+padding-top:20px;
+padding-bottom:20px;
+padding-left:200px;
+width:1200px;
+height:350px;
+}
+#button1{
+margin-left:29%;
+}
+#button2{
+margin-left:10px;
+}
+h4{
+	float:right;
+	margin-right:80px;
+	margin-top:90px;
+ 	font-family:"Times New Roman", Georgia, Serif;
+	}
+a:link,a:visited {
+    text-decoration: none;
+    color:black;
+}
+
+</style>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+ <link href="/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div id="div1" class="container">
+		<h1 id="logo">N J I T</h1>
+		<h4><a href="http://prophet.njit.edu:7780/CS632S104_015/home_page"> 
+    <span class="glyphicon glyphicon-home">Home</span></a></h4>	
+		</div>
+	<div id="subs_div">
+	<form class="form-horizontal" name="myform" action="form2" method="post" id="subs_form" onsubmit="return(validate());">
+		<div class="form-group">
+		<label class="col-md-4 control-label">Area Code:</label>
+		<div class="col-xs-4">
+		<input class="form-control" type="text" name="p_area" size="3" maxlength="3" placeholder="123" style="float:right;">
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<label class="col-md-4 control-label">First 3 Digits:</label>
+		<div class="col-xs-4">
+		<input class="form-control" type="text" name="p_first" size="3" maxlength="3" placeholder="567" style="float:right;"></br></br>
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<label class="col-md-4 control-label">Last 4 Digits:</label>
+		<div class="col-xs-4">
+		<input class="form-control" type="text" name="p_last" size="3" maxlength="4" placeholder="6789" style="float:right;"></br></br>
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<label class="col-md-4 control-label">Cell Phone Provider:</label>
+		<div class="col-xs-4">
+		<Select name="p_providers"  class="form-control" style="float:right;">
+			<option value="-1" selected>[Choose Provider]
+			<option value="Verizon">Verizon
+			<option value="AT&T">AT&T
+			<option value="T-Mobile">T-Mobile
+			<option value="T-Mobile">Sprint
+		</select>
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<label class="col-md-4 control-label">Subscription Activation Selection:</label>
+		<div class="radio" >
+		<label>
+		<input type="radio" name="p_subs" Value="Subscribe" id="optionsRadios1">
+		Subscribe
+		</label>
+		<label>
+		<input type="radio" name="p_subs" Value="Unsubscribe" id="optionsRadios2">
+		Unsubscribe
+		</label>
+		</div>
+		
+		</div>
+		
+		<input id="button1" class="btn btn-success " type="submit" name="p_submit" value="Submit">
+		<input id="button2" class="btn btn-success" type="reset" name="p_reset" value="Reset">
+		
+		
+	
+	</form>
+	
+	</div>
+	</br></br>
+	<div id="footer" align="center">
+      <div class="container">
+        <p class="text-muted credit"><a href="">See Subscribers</a></p>
+      </div>
+    </div>
+
+	<script type="text/javascript">
+		function validate(){
+			if(document.myform.p_area.value=="" ||
+			isNaN( document.myform.p_area.value ) ||
+			document.myform.p_area.value.length !=3 ){
+			alert("** Please Provide Appropriate 3 Digit Area Code **");
+			document.myform.p_area.focus() ;
+            return false;
+			}
+			else if(document.myform.p_first.value=="" ||
+			isNaN( document.myform.p_first.value ) ||
+			document.myform.p_first.value.length !=3 ){
+			alert("** Please Provide Appropriate First 3 Digits **");
+			document.myform.p_first.focus() ;
+            return false;
+			}
+			else if(document.myform.p_last.value=="" ||
+			isNaN( document.myform.p_last.value ) ||
+			document.myform.p_last.value.length !=4 ){
+			alert("** Please Provide Appropriate Last 4 Digits **");
+			document.myform.p_last.focus() ;
+            return false;
+			}
+			else if( document.myform.p_providers.value == "-1" )
+			{
+            alert( "Please Select Service Providers" );
+            return false;
+			}
+			else if ( ( document.myform.p_subs[0].checked == false ) && ( document.myform.p_subs[1].checked == false ) ) 
+			{
+			alert ( "**Please choose Subscription**" ); 
+			return false;
+			}
+			else if(document.myform.p_subs[1].checked == true){
+			alert("** you unsubscribed**");
+			}
+			else{
+			alert("You Submitted the form correctly and subscribed");
+			}
+			return (true);
+		}
+	</script>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/
+jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files
+as needed -->
+ <script src="/js/bootstrap.min.js"></script>
+ <script>
+ $(".contentContainer").css("min-height",$(window).height());
+ 
+ </script>
+</body>
+</html>

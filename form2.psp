@@ -1,0 +1,137 @@
+<%@ page language="pl/sql" %>
+<%@ plsql procedure="form2" %>
+<%@ plsql parameter="p_area" default="NULL" type="varchar2" %>
+<%@ plsql parameter="p_first" default="NULL" type="varchar2" %>
+<%@ plsql parameter="p_last" default="NULL" type="varchar2" %>
+<%@ plsql parameter="p_providers" default="null" type="VARCHAR2" %>
+<%@ plsql parameter="p_subs" default="null" type="VARCHAR2" %>
+<%@ plsql parameter="p_submit" default="null" type="VARCHAR2" %>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initialscale=1">
+	<title>NJIT TEXT MESSAGE ALERT</title>
+</head>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	clear:both;
+	}
+	#div1{
+	width:100%;
+	height:120px;
+	background:#D11515;
+	margin:0;
+	padding:0;
+	position:relative;
+	}
+	#logo{
+	padding-left:15px;
+	padding-top:12px;
+	font-style: italic;
+	color:white;
+	font-size: 40px;
+	font-family: "Times New Roman", Georgia, Serif;
+	}
+h4{
+	float:right;
+	margin-right:80px;
+	margin-top:90px;
+ 	font-family:"Times New Roman", Georgia, Serif;
+	}
+a:link,a:visited {
+    text-decoration: none;
+    color:black;
+}
+	.insert{
+	border-style: groove;
+	border-width:8px;
+	width:540px;
+	height:170px;
+	margin-top:50px;
+	margin-left:400px;
+	}
+	h3{
+	font-family: "Times New Roman", Georgia, Serif;
+	font-weight: normal;
+	font-style: oblique;
+	padding:5px;
+	}
+	#tab{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:20px;
+	width:350px;
+	padding-top:50px;
+	margin-left:500px;
+	}
+	tr:nth-child(even){background-color: #f2f2f2;}
+	th{
+	background-color: #4CAF50;
+	color:white;
+	}
+</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+ <link href="/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div id="div1" class="container">
+		<h1 id="logo">N J I T</h1>
+		<h4><a href="http://prophet.njit.edu:7780/CS632S104_015/home_page"> 
+		<span class="glyphicon glyphicon-home">Home</span></a></h4>	
+	</div>
+	
+	<%! CELLPHONE# varchar2(25) := p_area||p_first||p_last ; %>
+
+	<% if p_subs = 'Subscribe' then
+	insert into "SUBS_TABLE" values(CELLPHONE#,p_providers,'Subscribed'); %>
+	<div class="insert">
+	<h3>Thank You!</br>
+	You have successfully subscribed in NJIT's</br>
+	Text-Message Emergency Alert Service.</br>
+	Have a nice day.
+	</h3>
+	</div>
+	
+	<% else 
+	update SUBS_TABLE 
+	set "SUBSCRIPTION STATUS" = 'Unsubscribe'
+	where "CELLPHONE NUMBER" = CELLPHONE# AND 
+	"PROVIDERS"= p_providers;
+	%>
+	<div class="insert">
+	<h3>Thank You!</br>
+	You have successfully unsubscribed in NJIT's</br>
+	Text-Message Emergency Alert Service.</br>
+	Have a nice day.
+	</h3>
+	</div>
+	<% end if; %>
+	
+	
+<%--	<div id="tab" >
+	<p style="text-align:center;font-size:18px;"><b>List Of Subscribers</b></p>
+	<table class="table table-bordered">
+	<tr>
+	<th>CellPhone Number</th>
+	<th>Providers</th>
+	</tr>
+	<% 
+	for item in (select * from "SUBS_TABLE" where "SUBSCRIPTION STATUS" = 'Subscribed') loop
+	%>
+	<tr><td><%=item."CELLPHONE NUMBER" %></TD>
+	<TD><%=item."PROVIDERS" %></TD></TR>
+	<% end loop; %>
+	</table>
+	</div> --%>
+</body>
+</html>

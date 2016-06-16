@@ -1,0 +1,99 @@
+<%@ page language="pl/sql" %>
+<%@ plsql procedure="main_form" %>
+<%@ plsql parameter="p_area" default="null" type="NUMBER" %>
+<%@ plsql parameter="p_first" default="null" type="NUMBER" %>
+<%@ plsql parameter="p_last" default="null" type="NUMBER" %>
+<%@ plsql parameter="p_providers" default="null" type="VARCHAR2" %>
+<%@ plsql parameter="p_subs" default="null" type="VARCHAR2" %>
+<%@ plsql parameter="p_submit" default="null" type="VARCHAR2" %>
+<%@ plsql parameter="p_reset" default="null" type="VARCHAR2" %>
+
+
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initialscale=1">
+    <title>NJIT Emergency Text-Alerts</title>
+</head>
+<style>
+#subs_div{
+border-style:ridge;
+border-width: 5px;
+width:500px;
+height:260px;
+margin-left:30%;
+margin-top:30px;
+}
+#subs_form{
+padding:30px;
+}
+</style>
+<body>
+	<div id="subs_div">
+	<form name="myform" action="form2" method="post" id="subs_form" onsubmit="return(validate());">
+		<b>Area Code:</b>
+		<input type="text" name="p_area" size="3" maxlength="3" placeholder="123" style="float:right;"></br></br>
+		<b>First 3 Digits:</b>
+		<input type="text" name="p_first" size="3" maxlength="3" placeholder="567" style="float:right;"></br></br>
+		<b>Last 4 Digits:</b>
+		<input type="text" name="p_last" size="3" maxlength="4" placeholder="6789" style="float:right;"></br></br>
+		<b>Cell Phone Provider:</b>
+		<Select name="p_providers" style="float:right;">
+			<option value="-1" selected>[Choose Provider]
+			<option value="AT&T">AT&T
+			<option value="T-Mobile">Sprint
+			<option value="T-Mobile">T-Mobile
+			<option value="Verizon">Verizon
+		</select></br></br>
+		<b>Subscription Activation Selection:</b>&nbsp;&nbsp;
+		<input type="radio" name="p_subs" Value="Subscribe" checked>Subscribe
+		<input type="radio" name="p_subs" Value="Unsubscribe">Unsubscribe
+		</br></br>
+		<input type="submit" name="p_submit" Value="Submit">
+		<input type="submit" name="p_reset" Value="Reset">
+	
+	</form>
+	
+	</div>
+	
+	<script type="text/javascript">
+		function validate(){
+			if(document.myform.p_area.value=="" ||
+			isNaN( document.myform.p_area.value ) ||
+			document.myform.p_area.value.length !=3 ){
+			alert("** Please Provide Appropriate 3 Digit Area Code **");
+			document.myform.p_area.focus() ;
+            return false;
+			}
+			else if(document.myform.p_first.value=="" ||
+			isNaN( document.myform.p_first.value ) ||
+			document.myform.p_first.value.length !=3 ){
+			alert("** Please Provide Appropriate First 3 Digits **");
+			document.myform.p_first.focus() ;
+            return false;
+			}
+			else if(document.myform.p_last.value=="" ||
+			isNaN( document.myform.p_last.value ) ||
+			document.myform.p_last.value.length !=4 ){
+			alert("** Please Provide Appropriate Last 4 Digits **");
+			document.myform.p_last.focus() ;
+            return false;
+			}
+			 if( document.myform.p_providers.value == "-1" )
+			{
+            alert( "Please Select Service Providers" );
+            return false;
+			}
+			else{
+			alert("You Submitted the form correctly");
+			}
+			return (true);
+		}
+	</script>
+
+	
+	
+</body>
+</html>
